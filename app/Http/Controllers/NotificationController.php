@@ -10,6 +10,6 @@ class NotificationController extends Controller
     public function newMessage(\App\Http\Requests\NewNotification $request)
     {
         $notification = Notification::create($request->all());
-        return redirect()->back()->with("success","Mensagem inserida com sucesso!");
+        return redirect()->back()->with("success", "Mensagem inserida com sucesso!");
     }
 }

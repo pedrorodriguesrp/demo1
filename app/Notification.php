@@ -11,17 +11,19 @@ class Notification extends Model
         'author_id', 'message'
     ];
 
-    public function author() {
+    public function author()
+    {
         return $this->belongsTo('App\User', 'author_id');
     }
 
-    protected static function boot() {
+    protected static function boot()
+    {
         parent::boot();
 
         static::creating(function ($model) {
-            if(isset(Auth::user()->id)){
+            if (isset(Auth::user()->id)) {
                 $user_id = Auth::user()->id;
-            }else{
+            } else {
                 $user_id = 0;
             }
             $model->author_id = $user_id;
